@@ -29,7 +29,10 @@ def index_range(page, page_size):
     """
 
     # Ensure page and page_size are positive integer
-    if not isinstance(page, int) or not isinstance(page_size, int) or page <= 0 or page_size <= 0:
+    if (not isinstance(page, int) or
+            not isinstance(page_size, int) or
+            page <= 0 or
+            page_size <= 0):
         raise ValueError("Both page and page_size must be positive integer")
 
     # Calculate the start and end index
