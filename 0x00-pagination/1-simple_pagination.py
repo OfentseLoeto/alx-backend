@@ -7,7 +7,7 @@ import math
 from typing import List
 
 
-def index_range(self, page, page_size):
+def index_range(page, page_size):
     """
     Calculate the start and end indexes for a given page page size.
     This function takes two arguments, page and page_size, and calculate
