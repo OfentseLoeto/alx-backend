@@ -54,18 +54,19 @@ class Server:
             self.__dataset = dataset[1:]
 
         return self.__dataset
-
+    
+    
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
         Read CSV file to load dataset
         Check if the provided page, page_size are positive integers.
-
+        
         Use the index_range function to calculate the start and end indexes
         for pagination.
-
+        
         Retrieve the appropriate page of data by slicing the dataset using
         the calculated index.
-
+        
         Returns:
             Page: Page of data or an empty list if the args are out of range
         """

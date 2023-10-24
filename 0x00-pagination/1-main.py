@@ -2,7 +2,7 @@
 """
 Main file
 """
-from simple_helpers_function import index_range, Server
+from simple_helpers_function import index_range
 
 
 Server = __import__('1-simple_pagination').Server
