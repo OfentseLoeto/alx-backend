@@ -102,8 +102,10 @@ class Server:
                 "page_size": Length of the returned dataset page
                 "page": The current page number
                 "data": The dataset page.
-                "next_page": The number of the next page or None if no next page.
-                "prev_page": The number of the previous page or None if no prev page.
+                "next_page": The number of the next page or None
+                if no next page.
+                "prev_page": The number of the previous page or
+                None if no prev page.
                 "total_pages": The total number of pages in the dataset
         raises:
            ValueError: If page or page_size is not a positive integer.
