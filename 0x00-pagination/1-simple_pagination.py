@@ -9,14 +9,15 @@ from typing import List
 
 def index_range(self, page, page_size):
     if (not isinstance(page, int) or
-    not isinstance(page_size, int) or
-    page <= 0 or
-    page_size <= 0):
+            not isinstance(page_size, int) or
+            page <= 0 or
+            page_size <= 0):
 
         raise ValueError("Both page and page size must be positive integers.")
-    
+
     start_index, end_index = (page - 1) * page_size, page * page_size
     return start_index, end_index
+
 
 class Server:
     """Server class to paginate a database of popular baby names.
@@ -54,9 +55,9 @@ def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
     """
 
     if (not isinstance(page, int) or
-    not isinstance(page_size, int) or
-    page <= 0 or
-    page_size <= 0):
+            not isinstance(page_size, int) or
+            page <= 0 or
+            page_size <= 0):
         # Return an empty list if args are invalid
         return []
 
