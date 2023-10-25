@@ -6,9 +6,6 @@ from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    def __init__(self):
-        super().__init__()
-        self.cache_data = {}
     """
     This class inherits BaseCheching class
     - It provides the put and get methods
@@ -16,6 +13,10 @@ class BasicCache(BaseCaching):
       it can store in the cache
     - It then skip operations if key or item is none
     """
+    def __init__(self):
+        super().__init__()
+        self.cache_data = {}
+
     def put(self, key, item):
         """
         This method checks if the key or item is none
