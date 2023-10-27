@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 """
+Defining a caching system using (LRUcache) algorithm.
 """
 from base_caching import BaseCaching
 
 
 class LRUCache(BaseCaching):
+    """
+    Defining the LRUCache that inherits from its parent class
+    BaseCaching.
+    -It is a caching system class
+    """
     def __init__(self):
         super().__init__()
         self.cache_data = {}
@@ -47,4 +53,5 @@ class LRUCache(BaseCaching):
                 self.order.remove(key)
                 self.order.append(key)
                 return self.cache_data[key]
+        else:
             return None
