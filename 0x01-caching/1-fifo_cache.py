@@ -14,6 +14,7 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         super().__init__()
         self.queue = []
+        MAX_ITEMS = []
         self.cache_data = {}
 
     def put(self, key, item):
