@@ -17,7 +17,8 @@ class LRUCache(BaseCaching):
          algorithm.
 
          If the cache is already full (contains BaseCaching.MAX_ITEMS items),
-         the least recently used item will be discarded to make space for the new item.
+         the least recently used item will be discarded to make space for
+         the new item.
 
          Args:
              key (str): The key to associate with the item.
