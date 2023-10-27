@@ -39,7 +39,7 @@ class LIFOCache(BaseCaching):
                 last_in_key = next(iter(self.cache_data))
                 print(f"DISCARD: {last_in_key}")
                 del self.cache_data[last_in_key]
-            
+
             self.cache_data[key] = item
 
     def get(self, key):
