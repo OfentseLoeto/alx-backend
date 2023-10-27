@@ -14,7 +14,6 @@ class LIFOCache(BaseCaching):
     def __init__(self):
         super().__init__()
         self.cache_data = {}
-        BaseCaching.MAX_ITEMS = 4
 
     def put(self, key, item):
         """
@@ -50,6 +49,6 @@ class LIFOCache(BaseCaching):
         else it return none.
         """
         if key is not None:
-            return self_.cache_data.get(key)
+            return self.cache_data.get(key)
         else:
             return None
