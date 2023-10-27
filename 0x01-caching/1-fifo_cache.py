@@ -11,11 +11,7 @@ class FIFOCache(BaseCaching):
     from its parent class.
     - And is a caching system class
     """
-    def __init__(self):
-        super().__init__()
-        self.queue = []
-        self.cache_data = {}
-        BaseCaching.MAX_ITEMS = 4
+    cache_data = {}
 
     def put(self, key, item):
         """
@@ -31,12 +27,11 @@ class FIFOCache(BaseCaching):
             # Check if cache is full.
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 # Discard the first item FIFO
-                discarded_key = self.queue.pop(0)
-                del self.cache_data[discarded_key]
+                discarded_key = next(iter(self.cache_data))
                 print(f"DISCARD: {discarded_key}")
+                del self.cache_data[discarded_key]
 
             self.cache_data[key] = item
-            self.queue.append(key)
 
     def get(self, key):
         """
