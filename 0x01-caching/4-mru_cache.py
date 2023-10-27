@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Defining a caching system using (LRUcache) algorithm.
+Defining a caching system using (MRUcache) algorithm.
 """
 from base_caching import BaseCaching
 
 
-class LRUCache(BaseCaching):
+class MRUCache(BaseCaching):
     """
-    Defining the LRUCache that inherits from its parent class
+    Defining the MRUCache that inherits from its parent class
     BaseCaching.
     -It is a caching system class
     """
@@ -18,7 +18,7 @@ class LRUCache(BaseCaching):
 
     def put(self, key, item):
         """
-         Add an item to the cache using the LRU (Least Recently Used)
+         Add an item to the cache using the MRU (mOSTst Recently Used)
          algorithm.
 
          If the cache is already full (contains BaseCaching.MAX_ITEMS items),
@@ -36,9 +36,9 @@ class LRUCache(BaseCaching):
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 # Find the list recently used key (the first key
                 # in the order list).
-                lru_key = self.order.pop(3)
-                print(f"DISCARD: {lru_key}")
-                del self.cache_data[lru_key]
+                mru_key = self.order.pop()
+                print(f"DISCARD: {mru_key}")
+                del self.cache_data[mru_key]
 
             self.cache_data[key] = item
             self.order.append(key)
@@ -46,8 +46,8 @@ class LRUCache(BaseCaching):
     def get(self, key):
         if key is not None:
             if key in self.cache_data:
-                self.order.append(key)
                 self.order.remove(key)
+                self.order.append(key)
                 return self.cache_data[key]
 
         return None
