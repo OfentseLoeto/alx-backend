@@ -14,6 +14,7 @@ class LIFOCache(BaseCaching):
     def __init__(self):
         super().__init__()
         self.cache_data = {}
+        BaseCaching.MAX_ITEMS = 4
 
     def put(self, key, item):
         """
@@ -33,10 +34,11 @@ class LIFOCache(BaseCaching):
         """
 
         if key is not None and item is not None:
+            # Check if length of cache is full
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 # Find the last key to be removed
                 # (The last key added to the cache).
-                last_in_key = next(iter(self.cache_data))
+                last_in_key = list(self.cache_data.keys())[-1]
                 print(f"DISCARD: {last_in_key}")
                 del self.cache_data[last_in_key]
 
