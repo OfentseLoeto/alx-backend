@@ -14,7 +14,6 @@ class LRUCache(BaseCaching):
     def __init__(self):
         super().__init__()
         self.cache_data = {}
-        # Use a list to track oreder of keys
         self.order = []
 
     def put(self, key, item):
@@ -38,26 +37,17 @@ class LRUCache(BaseCaching):
                 # Find the list recently used key (the first key
                 # in the order list).
                 lru_key = self.order.pop(0)
-                # Print cache before discarding
-                self.print_cache()
                 print(f"DISCARD: {lru_key}")
                 del self.cache_data[lru_key]
 
             self.cache_data[key] = item
-            # Add key to the end of the order list
             self.order.append(key)
 
     def get(self, key):
         if key is not None:
             if key in self.cache_data:
-                # Move the accessed key  to the end of the order
-                # list (most recently used).
-                self.order.remove(key)
                 self.order.append(key)
-                return self.cache_data.get(key)
-        return None
+                self.order.remove(key)
+                return self.cache_data[key]
 
-    def print_cache(self):
-        print("Current cache:")
-        for key in self.order:
-            print(f"{key}: {self.cache_data[key]}")
+        return None
