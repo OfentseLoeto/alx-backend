@@ -35,8 +35,7 @@
     "sinon": "^7.5.0"
   },
   "repository": {
-  "type": "git",
-  "url": "https://github.com/OfentseLoeto/alx-backend"
-}
-
+    "type": "git",
+    "url": "https://github.com/OfentseLoeto/alx-backend"
+  }
 }
