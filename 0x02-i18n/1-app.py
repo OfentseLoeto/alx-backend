@@ -27,6 +27,21 @@ babel = Babel(app)
 
 
 class Config:
+    """
+    Configuration class for Flask app with Flask-Babel extension.
+
+    This class defines configuration parameters for internationalization
+    (i18n) using Flask-Babel in a Flask web application.
+
+    Attributes:
+        LANGUAGES (list): List of supported languages for translation.
+        BABEL_DEFAULT_LOCALE (str): Default locale for the application.
+        BABEL_DEFAULT_TIMEZONE (str): Default timezone for the application.
+
+    Example Usage:
+        app = Flask(__name__)
+        app.config.from_object(Config)
+    """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
