@@ -50,6 +50,7 @@ class Config:
 app.config.from_object(Config)
 
 
+@babel.localeselector
 def get_locale():
     """
     Determine the best-matching language for the user.
