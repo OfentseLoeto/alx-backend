@@ -16,7 +16,7 @@ Dependencies:
     - Flask: The web framework used to create the application.
 
 Author:
-    [Ofentse Loeto]
+    Ofentse Loeto
 """
 from flask import Flask, render_template
 
