@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Flask App with Mocked User Login
 
@@ -36,20 +35,39 @@ users = {
 
 
 def get_user(user_id):
-    """Retrieve user information based on user ID."""
+    """
+    Retrieve user information based on user ID.
+
+    Parameters:
+        user_id (int): The ID of the user to retrieve.
+
+    Returns:
+        dict or None: A dictionary containing user information if the user
+        is found, or None if the user ID is not present.
+    """
     return users.get(user_id)
 
 
 @app.before_request
 def before_request():
-    """Execute before all other functions to set the user in flask.g."""
+    """
+    Execute before all other functions to set the user in flask.g.
+
+    This function retrieves the 'login_as' parameter from the request URL
+    and sets the user in the flask.g object for use in route handlers.
+    """
     user_id = request.args.get('login_as', type=int)
     g.user = get_user(user_id) if user_id else None
 
 
 @app.route('/')
 def index():
-    """Route handler for the root ("/") endpoint."""
+    """
+    Route handler for the root ("/") endpoint.
+
+    Returns:
+        str: Rendered HTML content from the 5-index.html template.
+    """
     return render_template('5-index.html')
 
 
