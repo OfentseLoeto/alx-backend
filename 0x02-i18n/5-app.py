@@ -22,6 +22,7 @@ from flask import Flask, render_template, g, request
 from flask_babel import Babel, _
 import pytz
 
+
 app = Flask(__name__)
 babel = Babel(app)
 
@@ -33,9 +34,11 @@ users = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
+
 def get_user(user_id):
     """Retrieve user information based on user ID."""
     return users.get(user_id)
+
 
 @app.before_request
 def before_request():
@@ -43,10 +46,12 @@ def before_request():
     user_id = request.args.get('login_as', type=int)
     g.user = get_user(user_id) if user_id else None
 
+
 @app.route('/')
 def index():
     """Route handler for the root ("/") endpoint."""
     return render_template('5-index.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
