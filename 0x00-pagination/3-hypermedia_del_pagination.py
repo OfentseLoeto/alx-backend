@@ -42,6 +42,26 @@ class Server:
         pass
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        """
+        Retrieve a hypermedia page from the indexed dataset.
+
+        Parameters:
+        - index (int, optional): The start index of the requested page.
+          If not provided, set to None.
+        - page_size (int, optional): The size of the requested page.
+                                     Defaults to 10.
+
+        Returns:
+        Dict: A dictionary containing the hypermedia page information.
+              The dictionary has the following key-value pairs:
+              - 'index': The current start index of the returned page.
+              - 'data': The actual page data from the dataset.
+              - 'page_size': The current page size.
+              - 'next_index': The next index to query for the subsequent page.
+
+        Raises:
+        AssertionError: Raised if the provided index is out of range.
+        """
         assert index is None or 0 <= index < len(self.__indexed_dataset)
 
         data_page = []
