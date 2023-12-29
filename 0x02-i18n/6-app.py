@@ -34,4 +34,4 @@ def get_locale():
         return request_locale.split(',')[0].split(';')[0]
 
     # Priority 4: Default locale
-    return 'en'
+    return 'UTC'
