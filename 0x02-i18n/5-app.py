@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Flask App with Mocked User Login
 
@@ -13,6 +14,8 @@ Routes:
 
 Dependencies:
     - Flask: The web framework used to create the application.
+    - Flask-Babel: Flask extension for internationalization and localization.
+    - pytz: Python library for handling time zones.
 
 Author:
     [Ofentse Loeto]
@@ -21,9 +24,9 @@ from flask import Flask, render_template, g, request
 from flask_babel import Babel, _
 import pytz
 
-
 app = Flask(__name__)
 babel = Babel(app)
+
 
 # Mocked user table
 users = {
@@ -38,12 +41,13 @@ def get_user(user_id):
     """
     Retrieve user information based on user ID.
 
-    Parameters:
+    Args:
         user_id (int): The ID of the user to retrieve.
 
     Returns:
-        dict or None: A dictionary containing user information if the user
-        is found, or None if the user ID is not present.
+        dict or None: A dictionary containing user information if found,
+                      or None if the user ID is not present in the 'users'
+                      dictionary.
     """
     return users.get(user_id)
 
@@ -53,8 +57,9 @@ def before_request():
     """
     Execute before all other functions to set the user in flask.g.
 
-    This function retrieves the 'login_as' parameter from the request URL
-    and sets the user in the flask.g object for use in route handlers.
+    This function retrieves the 'login_as' URL parameter, emulating the
+    user login, and sets the user information in the Flask global object
+    (flask.g) for easy access in other parts of the application.
     """
     user_id = request.args.get('login_as', type=int)
     g.user = get_user(user_id) if user_id else None
@@ -66,7 +71,7 @@ def index():
     Route handler for the root ("/") endpoint.
 
     Returns:
-        str: Rendered HTML content from the 5-index.html template.
+        str: Rendered HTML content from the '5-index.html' template.
     """
     return render_template('5-index.html')
 
