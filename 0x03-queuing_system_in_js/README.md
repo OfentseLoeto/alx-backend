@@ -30,3 +30,8 @@ Requirements:
 
 Use callbacks for any of the operation, we will look at async operations later
 
+3-In a file 2-redis_op_async.js, let’s copy the code from the previous exercise (1-redis_op.js)
+
+.Using promisify, modify the function displaySchoolValue to use ES6 async / await
+
+Same result as 1-redis_op.js
