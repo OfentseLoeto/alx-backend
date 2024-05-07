@@ -2,8 +2,8 @@ const kue = require('kue');
 const queue = kue.createQueue();
 
 const jobData = {
-  phoneNumber: '0617793571',
-  message: 'Test notification'
+  phoneNumber: '4153518780',
+  message: 'This is the code to varify your account'
 };
 
 const job = queue.create('push_notification_code', jobData)
