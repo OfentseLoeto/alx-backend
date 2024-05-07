@@ -57,3 +57,19 @@ After time millisecond:
   -The function should publish to the channel holberton school channel, the message passed in argument after the time passed in arguments
 At the end of the file, call:
 
+
+5-In a file named 6-job_creator.js:
+
+Create a queue with Kue
+
+Create an object containing the Job data with the following format:
+{
+  phoneNumber: string,
+  message: string,
+}
+
+.Create a queue named push_notification_code, and create a job with the object created before
+.When the job is created without error, log to the console Notification job created: JOB ID
+.When the job is completed, log to the console Notification job completed
+.When the job is failing, log to the console Notification job failed
+
